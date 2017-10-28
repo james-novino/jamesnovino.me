@@ -155,6 +155,7 @@ experience expandedCards =
     List.map (expItem expandedCards)
       [ jetDetails
       , jetInternDetails
+      , nasaInternDetails
       ]
 
 expItem : List DetailCard -> ExpItemDetails -> Html Msg

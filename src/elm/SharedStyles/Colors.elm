@@ -5,7 +5,7 @@ import Css exposing (Color, hex, rgba)
 -- COLORS
 
 primary : Color
-primary = red
+primary = purple
 
 white : Color
 white = (hex "FFFFFF")
@@ -24,3 +24,6 @@ blue = (hex "049EFF")
 
 clear : Color
 clear = (rgba 0 0 0 0)
+
+purple : Color 
+purple = (hex "7742f4")

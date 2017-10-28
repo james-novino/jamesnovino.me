@@ -17,9 +17,9 @@ aboutMe =
     B.E. in Electrical Engineering and a minor in Computer Science. 
     """
   , """
-    I have the most interested in functional programming, machine learning and robotics. 
-    I always enjoy reading about emerging technologies in these fields and
-    researching how I can leverage them to create better software and human experiences.
+    I am interested in functional programming, machine learning and robotics. 
+    I have always had a interest in emerging technologies and enjoy leveraging 
+    them for better software and human experiences.
     """
   ]
 
@@ -43,7 +43,7 @@ jetDetails =
   , timePeriod = "Febuarary 2017 - Present"
   , details =
       [
-        "Managed and developed API's for Order Management System"
+        "Managed and developed API's for OMS (Order Management System) "
         , "Contributed to DSL based workflow engine"
         , "Built and maintained internal infrastructure library"
 
@@ -60,21 +60,22 @@ jetInternDetails =
   , details =
       [
         "Developed Internal Tooling for Order Management Systems"
-        , "Build Features for Customer Service Tooling"
+        , "Built Features for Customer Service Tooling"
       ]
   }
 
 nasaInternDetails : ExpItemDetails
 nasaInternDetails =
   { card = NasaCard
-  , color = "rgb(130, 0, 255)"
+  , color = "rgb(11, 61, 145)"
   , logo = "/assets/nasa.png"
   , position = "Electrical Engineering Intern"
   , timePeriod = "May 2015 - August 2015"
   , details =
       [
         "Contributing member for the FPGA design for the HiDRA (High Data Rate Architecture)"
-        , "Designed FPGA fabric to integrate with EDID encoding and DMA transfer to a SBC (Single Board Computer)"
+        , "Designed FPGA fabric to integrate with EDID (Encoding Decoding Interleaving De-Interleaving)"
+        , "Built FPGA fabric to integrate with SBC (Single Board Computer)"
       ]
   }
 
@@ -110,7 +111,6 @@ templeEduDetails =
       , "Embedded Systems"
       , "Discrete Math"
       , "Probability and Statistics for Engineers"
-      , "Discrete Math"
       ]
   }
 
