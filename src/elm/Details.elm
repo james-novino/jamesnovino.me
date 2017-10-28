@@ -2,7 +2,8 @@ module Details exposing (..)
 
 type DetailCard
   = JetCard
-  | BaeCard
+  | JetInternCard
+  | NasaCard
   | TempleCard
   | TempleEduCard
 
@@ -39,28 +40,43 @@ jetDetails =
   , color = "rgb(130, 0, 255)"
   , logo = "/assets/jetlogo.jpg"
   , position = "Software Engineer II"
-  , timePeriod = "Feburary 2017 - Present"
+  , timePeriod = "Febuarary 2017 - Present"
   , details =
       [
-        "Add Details here later"
-        , "More Details"
+        "Managed and developed API's for Order Management System"
+        , "Contributed to DSL based workflow engine"
+        , "Built and maintained internal infrastructure library"
+
       ]
   }
 
 jetInternDetails : ExpItemDetails
 jetInternDetails =
-  { card = JetCard
+  { card = JetInternCard
   , color = "rgb(130, 0, 255)"
   , logo = "/assets/jetlogo.jpg"
   , position = "Software Engineering Intern"
   , timePeriod = "May 2016 - August 2017"
   , details =
       [
-        "Add Details here later"
-        , "More Details"
+        "Developed Internal Tooling for Order Management Systems"
+        , "Build Features for Customer Service Tooling"
       ]
   }
 
+nasaInternDetails : ExpItemDetails
+nasaInternDetails =
+  { card = NasaCard
+  , color = "rgb(130, 0, 255)"
+  , logo = "/assets/nasa.png"
+  , position = "Electrical Engineering Intern"
+  , timePeriod = "May 2015 - August 2015"
+  , details =
+      [
+        "Contributing member for the FPGA design for the HiDRA (High Data Rate Architecture)"
+        , "Designed FPGA fabric to integrate with EDID encoding and DMA transfer to a SBC (Single Board Computer)"
+      ]
+  }
 
 
 -- EDUCATION
@@ -87,14 +103,14 @@ templeEduDetails =
   , minor = "Computer Science"
   , coursework =
       [ "Algorithms"
-      , "Object-Oriented Software Engineering"
-      , "Data Structures"
       , "Machine Learning"
-      , "Discrete Math"
-      , "Differential Equations"
-      , "Probability and Statistics for Engineers"
-      , "Engineering Design I-V"
       , "Signals & Systems"
+      , "Advanced Processors"
+      , "Data & Computer Communication"
+      , "Embedded Systems"
+      , "Discrete Math"
+      , "Probability and Statistics for Engineers"
+      , "Discrete Math"
       ]
   }
 
