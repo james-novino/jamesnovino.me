@@ -16,7 +16,7 @@ const isDev = TARGET_ENV == dev;
 const isProd = TARGET_ENV == prod;
 
 // entry and output path/filename variables
-const entryPath = path.join(__dirname, 'src/static/index.js');
+const entryPath = path.join(__dirname, 'src/js/index.js');
 const outputPath = path.join(__dirname, 'dist');
 const outputFilename = isProd ? '[name]-[hash].js' : '[name].js'
 
@@ -26,7 +26,7 @@ console.log('WEBPACK GO! Building for ' + TARGET_ENV);
 var commonConfig = {
     output: {
         path: outputPath,
-        filename: `static/js/${outputFilename}`,
+        filename: `js/${outputFilename}`,
     },
     resolve: {
         extensions: ['.js', '.elm'],
@@ -34,10 +34,21 @@ var commonConfig = {
     },
     module: {
         noParse: /\.elm$/,
-        rules: [{
-            test: /\.(eot|ttf|woff|woff2|svg)$/,
-            use: 'file-loader?publicPath=../../&name=static/css/[hash].[ext]'
-        }]
+        rules: [
+            {
+                test: /Stylesheets\.elm$/,
+                use: [
+                  'style-loader',
+                  'css-loader',
+                  'elm-css-webpack-loader'
+                ]
+            },
+            {
+                test: /\.(pdf|png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+                use: 'file-loader?name=assets/[name].[ext]'
+            }
+    
+        ]
     },
     plugins: [
         new webpack.LoaderOptionsPlugin({
@@ -69,7 +80,7 @@ if (isDev === true) {
         module: {
             rules: [{
                 test: /\.elm$/,
-                exclude: [/elm-stuff/, /node_modules/],
+                exclude: [/elm-stuff/, /node_modules/, /Stylesheets\.elm/],
                 use: [{
                     loader: 'elm-webpack-loader',
                     options: {
@@ -78,9 +89,6 @@ if (isDev === true) {
                         debug: true
                     }
                 }]
-            },{
-                test: /\.sc?ss$/,
-                use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
             }]
         }
     });
@@ -104,15 +112,15 @@ if (isProd === true) {
             }]
         },
         plugins: [
-            // new ExtractTextPlugin({
-            //     filename: 'static/css/[name]-[hash].css',
-            //     allChunks: true,
-            // }),
+            new ExtractTextPlugin({
+                filename: 'static/css/[name]-[hash].css',
+                allChunks: true,
+            }),
             new CopyWebpackPlugin([{
-                from: 'src/static/img/',
+                from: 'src/asests/',
                 to: 'static/img/'
             }, {
-                from: 'src/favicon.ico'
+                from: 'src/static/favicon.ico'
             }]),
 
             // extract CSS into a separate file
