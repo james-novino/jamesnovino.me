@@ -1,63 +1,101 @@
-module Main exposing (..)
 import Html exposing (..)
-import Html.Attributes exposing (..)
-import Html.Events exposing ( onClick )
+import Html.CssHelpers exposing (withNamespace)
+import MainStyles exposing (..)
+import Utils exposing (onScroll, ScrollEvent, scrolling)
 
--- component import example
-import Components.Hello exposing ( hello )
-
-
--- APP
-main : Program Never Int Msg
-main =
-  Html.beginnerProgram { model = model, view = view, update = update }
+main : Program Never Model Msg
+main = Html.beginnerProgram
+  { model = model
+  , update = update
+  , view = view
+  }
 
 
 -- MODEL
-type alias Model = Int
 
-model : number
-model = 0
+type alias Model =
+  { scrollPercent: Float
+  }
+
+model : Model
+model =
+  { scrollPercent = 0
+  }
 
 
 -- UPDATE
-type Msg = NoOp | Increment
+
+type Msg
+  = UpdateScrollPercent ScrollEvent
 
 update : Msg -> Model -> Model
 update msg model =
   case msg of
-    NoOp -> model
-    Increment -> model + 1
+    UpdateScrollPercent event ->
+      { model | scrollPercent = event.scrollPos / event.visibleHeight * 100 }
 
 
 -- VIEW
--- Html is defined as: elem [ attribs ][ children ]
--- CSS can be applied via class names or inline style attrib
+
+{ id, class, classList } = withNamespace "main"
+
 view : Model -> Html Msg
 view model =
-  div [ class "container", style [("margin-top", "30px"), ( "text-align", "center" )] ][    -- inline CSS (literal)
-    div [ class "row" ][
-      div [ class "col-xs-12" ][
-        div [ class "jumbotron" ][
-          img [ src "static/img/elm.jpg", style styles.img ] []                             -- inline CSS (via var)
-          , hello model                                                                     -- ext 'hello' component (takes 'model' as arg)
-          , p [] [ text ( "Elm Webpack Starter" ) ]
-          , button [ class "btn btn-primary btn-lg", onClick Increment ] [                  -- click handler
-            span[ class "glyphicon glyphicon-star" ][]                                      -- glyphicon
-            , span[][ text "FTW!" ]
-          ]
+  div [ class [Main] ]
+    [ header model
+    , div
+        [ class [ Body ], onScroll UpdateScrollPercent ]
+        [ home model
+        , experience model
+        ]
+    ]
+
+menuIcon : Html Msg
+menuIcon =
+  div [ class [ MenuIcon ] ]
+    [ div [] [], div [] [], div [] [] ]
+
+
+header : Model -> Html Msg
+header model =
+  if scrolling model.scrollPercent then
+    div [ class [ Header ] ]
+      [ if model.scrollPercent > 20 then
+          h1 [ class [ Code, Logo ] ] [ text "[BZ]" ]
+        else
+          div [] []
+      , div []
+        [ menuIcon
         ]
       ]
-    ]
-  ]
-
-
--- CSS STYLES
-styles : { img : List ( String, String ) }
-styles =
-  {
-    img =
-      [ ( "width", "33%" )
-      , ( "border", "4px solid #337AB7")
+  else
+    div [ class [ HeaderInit ] ]
+      [ menuIcon
       ]
-  }
+
+home : Model -> Html Msg
+home model =
+  div [ class [Home] ]
+    [ h1 [ class [ Code ] ] [ text "[JN]" ]
+    , h2 [] [ text "James Novino" ]
+    , p [ class [ Code ] ] [ text "JN :: Coffee -> Technology -> Code" ]
+    , p [] [ text "Passionate software developer" ]
+    ]
+
+experience : Model -> Html Msg
+experience model =
+  div [ class [Experience] ]
+    [ h2 [] [ text "Experience" ]
+    , p [] [ text "Sample Text" ]
+    , p [] [ text "Sample Text" ]
+    , p [] [ text "Sample Text" ]
+    , p [] [ text "Sample Text" ]
+    , p [] [ text "Sample Text" ]
+    , p [] [ text "Sample Text" ]
+    , p [] [ text "Sample Text" ]
+    , p [] [ text "Sample Text" ]
+    , p [] [ text "Sample Text" ]
+    , p [] [ text "Sample Text" ]
+    , p [] [ text "Sample Text" ]
+    , p [] [ text "Sample Text" ]
+    ]

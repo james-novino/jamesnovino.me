@@ -104,10 +104,10 @@ if (isProd === true) {
             }]
         },
         plugins: [
-            new ExtractTextPlugin({
-                filename: 'static/css/[name]-[hash].css',
-                allChunks: true,
-            }),
+            // new ExtractTextPlugin({
+            //     filename: 'static/css/[name]-[hash].css',
+            //     allChunks: true,
+            // }),
             new CopyWebpackPlugin([{
                 from: 'src/static/img/',
                 to: 'static/img/'
