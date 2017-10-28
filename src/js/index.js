@@ -5,6 +5,7 @@ const resume = require('../assets/JamesNovinoResume.pdf');
 const myPicture = require('../assets/james.png');
 const jetLogo = require('../assets/jetlogo.jpg');
 const nasaLogo = require('../assets/nasa.png');
+const microsoftLogo = require('../assets/microsoft.png')
 const templeLogo = require('../assets/temple.png')
 const linkedinLogo = require('../assets/linkedin.svg');
 const githubLogo = require('../assets/github.svg');

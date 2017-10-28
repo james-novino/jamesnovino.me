@@ -3,7 +3,9 @@ module Details exposing (..)
 type DetailCard
   = JetCard
   | JetInternCard
+  | MicrosoftCard
   | NasaCard
+  | TempleLabCard
   | TempleCard
   | TempleEduCard
 
@@ -61,6 +63,34 @@ jetInternDetails =
       [
         "Developed Internal Tooling for Order Management Systems"
         , "Built Features for Customer Service Tooling"
+      ]
+  }
+
+microsoftStudentPartnerDetails : ExpItemDetails
+microsoftStudentPartnerDetails = 
+  { card = MicrosoftCard
+  , color = "rgb(255, 187, 0)"
+  , logo = "/assets/microsoft.png"
+  , position = "Microsoft Student Partner"
+  , timePeriod = "January 2016 - December 2017"
+  , details =
+      [
+        "The official Microsoft Liaison for Temple University"
+        , "Worked with student organizations to foster a rich learning environment by hosting workshops and technical events on campus"
+      ]
+  }
+
+templeLabManagerDetails : ExpItemDetails
+templeLabManagerDetails = 
+  { card = TempleLabCard
+  , color = "rgb(179, 5, 56)"
+  , logo = "/assets/temple.png"
+  , position = "Temple Student Lab Manager"
+  , timePeriod = "January 2016 - December 2017"
+  , details =
+      [
+        "Managed the NASA Student Space Exploration & Robotics Lab"
+        , "Projects including NASA mining rover development, Quad-copter design, Suborbital Payload development, Cloud Robotics Research and Autonomous Lawnmower"
       ]
   }
 

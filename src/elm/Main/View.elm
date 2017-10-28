@@ -94,7 +94,7 @@ home curHeight =
     [ h1 [ class [ Code ] ] [ text "[JN]" ]
     , div [ class [ NameContainer ] ]
         [ h2 [] [ text "James Novino" ]
-        , p [ class [ Code ] ] [ text "JN :: Caffine -> Technology -> Code" ]
+        , p [ class [ Code ] ] [ text "JN :: Caffeine -> Code" ]
         , p [] [ text "Software Developer & Engineer" ]
         ]
     , div [ class [ ResumeContainer ] ]
@@ -155,6 +155,8 @@ experience expandedCards =
     List.map (expItem expandedCards)
       [ jetDetails
       , jetInternDetails
+      , microsoftStudentPartnerDetails
+      , templeLabManagerDetails
       , nasaInternDetails
       ]
 
