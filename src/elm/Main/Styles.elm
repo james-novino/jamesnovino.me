@@ -3,8 +3,8 @@ module Main.Styles exposing (..)
 import Css exposing (..)
 import Css.Elements exposing (..)
 import Css.Namespace exposing (namespace)
-import SharedStyles.Colors as Colors exposing (..)
-import SharedStyles.CustomCss as Custom exposing (..)
+import Styles.Colors as Colors exposing (..)
+import Styles.CustomCss as Custom exposing (..)
 
 
 -- CLASSES
@@ -47,6 +47,8 @@ type CssClasses
   | Education
   | MajorMinor
   | CourseWork
+  | Projects
+  | Link
   | Contact
   | ContactIcon
   | End
@@ -250,9 +252,9 @@ css =
 
   , class NameContainer <| centerFlex ++
       [ flexDirection column
-      , height (vh 20)
+      , height (vh 60)
       , children
-          [ h2 <| centerFlex ++
+          [ h1 <| centerFlex ++
               [ margin2 (Css.rem 0.25) zero
               , fontSize (Css.rem 2.2)
               , fontWeight (int 300)
@@ -403,11 +405,23 @@ css =
             ]
         ]
 
+    , class Link
+        [ margin2 (Css.rem 0.5) zero
+        , children
+            [ p
+                [ display inline
+                , firstChild [ margin4 zero (Css.rem 1) zero zero ]
+                ]
+            ]
+        ]
+
     , class CourseWork
         [ marginTop (Css.rem 1.2)
         , children
             [ p [ margin zero ] ]
         ]
+
+    , class Projects <| contentBase
 
     , class Contact <| contentBase ++
         [ height (pct 94)

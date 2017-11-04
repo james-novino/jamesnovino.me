@@ -2,7 +2,7 @@ module Main.View exposing (view)
 
 import Main.Logic exposing (Model, Msg (..), isExpanded)
 import Main.Styles exposing (..)
-import Details exposing (..)
+import Components.Details as Details exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
@@ -27,6 +27,7 @@ view model =
         , about
         , experience model.expandedCards
         , education model.expandedCards
+        , projects model.expandedCards
         , contact
         ]
     ]
@@ -75,7 +76,7 @@ homeButton model =
             then [ Code, Logo ]
             else [ Code, NoLogo]
         ]
-        [ text "[JN]" ]
+        [ text "James Novino" ]
     ]
 
 header : Model -> Html Msg
@@ -91,9 +92,9 @@ header model =
 home : Float -> Html Msg
 home curHeight =
   div [ class [ Home ] ]
-    [ h1 [ class [ Code ] ] [ text "[JN]" ]
-    , div [ class [ NameContainer ] ]
-        [ h2 [] [ text "James Novino" ]
+    -- [ h1 [ class [ Code ] ] [ text "[JN]" ]
+    [ div [ class [ NameContainer ] ]
+        [ h1 [] [ text "James Novino" ]
         , p [ class [ Code ] ] [ text "JN :: Caffeine -> Code" ]
         , p [] [ text "Software Developer & Engineer" ]
         ]
@@ -212,6 +213,48 @@ eduDetails detailsItem =
             ]
         ]
     ]
+
+projectItem : List DetailCard -> ProjectItemDetails -> Html Msg
+projectItem expandedCards detailsItem =
+  div [ class [ ItemDetails ] ]
+    [ div [ class [ DetailsLogo ] ] [ img [ src detailsItem.logo ] [] ]
+    , div [ class [ BasicDetails ] ]
+        [ p [ class [ DefaultFont ] ] [ text detailsItem.title]
+        , p [] [ text detailsItem.timePeriod ]
+        ]
+    , toggleDetailsButton expandedCards detailsItem.card detailsItem.color
+    , projectDetails detailsItem
+    , div [ class [ DetailsBottom ], style [ ("backgroundColor", detailsItem.color) ] ] []
+    ]
+
+projectDetails : ProjectItemDetails -> Html Msg
+projectDetails detailsItem =
+  div [ class [ MoreDetails ], id detailsItem.card ]
+    [ div [ class [ DetailsText ] ] 
+        [ div [ class [ Link ] ] 
+            [ p [ class [ DefaultFont ] ] [ text "Link:" ]
+            , a [ href  detailsItem.link, target "_blank" ] [ text detailsItem.link ]
+            ]
+        , div [ class [ Link ] ]
+            [ p [ class [ DefaultFont ] ] [ text "Members:" ]
+            , p [ class [] ] [ text detailsItem.members ] 
+            ]
+        , div [ class [ Link ] ]
+            [ p [ class [DefaultFont ] ] [ text "Description:" ]
+            , div [] (List.map detailBullet detailsItem.details) 
+            ]
+        ]
+    ]
+
+projects : List DetailCard -> Html Msg
+projects expandedCards =
+  div [ class [ Experience ] ] <|
+    h2 [] [ text "Projects" ] ::
+    List.map (projectItem expandedCards)
+      [ fifthRmc
+      , sixthRmc
+      , seventhRmc
+      ]
 
 contactIcon : String -> String -> Html Msg
 contactIcon link name =

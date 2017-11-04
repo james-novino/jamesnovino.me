@@ -1,4 +1,4 @@
-module SharedStyles.CustomCss exposing (..)
+module Styles.CustomCss exposing (..)
 
 import Css exposing (Style, property)
 

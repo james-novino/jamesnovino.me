@@ -1,4 +1,4 @@
-module SharedStyles.Colors exposing (..)
+module Styles.Colors exposing (..)
 
 import Css exposing (Color, hex, rgba)
 
