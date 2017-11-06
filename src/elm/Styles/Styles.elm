@@ -1,4 +1,4 @@
-module Main.Styles exposing (..)
+module Styles.Styles exposing (..)
 
 import Css exposing (..)
 import Css.Elements exposing (..)

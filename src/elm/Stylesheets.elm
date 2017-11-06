@@ -1,14 +1,14 @@
 port module Stylesheets exposing (..)
 
 import Css.File exposing (CssCompilerProgram, CssFileStructure)
-import Main.Styles
+import Styles.Styles
 
 port files : CssFileStructure -> Cmd msg
 
 fileStructure : CssFileStructure
 fileStructure =
     Css.File.toFileStructure
-        [ ( "mainStyles.css", Css.File.compile [ Main.Styles.css ] ) ]
+        [ ( "mainStyles.css", Css.File.compile [ Styles.Styles.css ] ) ]
 
 
 main : CssCompilerProgram

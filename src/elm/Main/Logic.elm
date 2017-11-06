@@ -3,7 +3,7 @@ module Main.Logic exposing (..)
 import Task
 import Window
 import Ports exposing (..)
-import Components.Details as Details exposing (..)
+import Details.Common exposing (..)
 
 
 -- INITIALIZE

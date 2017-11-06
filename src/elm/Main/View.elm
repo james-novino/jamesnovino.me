@@ -1,8 +1,17 @@
 module Main.View exposing (view)
 
 import Main.Logic exposing (Model, Msg (..), isExpanded)
-import Main.Styles exposing (..)
-import Components.Details as Details exposing (..)
+import Styles.Styles exposing (..)
+
+
+-- All the details 
+import Details.Common exposing (..)
+import Details.Education exposing (..)
+import Details.Contact exposing (..)
+import Details.Projects exposing (..)
+import Details.Experience exposing (..)
+
+--import Components.Contact as Contact exposing (view)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
@@ -56,6 +65,7 @@ menu model =
       [ "About"
       , "Experience"
       , "Education"
+      , "Projects"
       , "Contact"
       ]
 
@@ -76,7 +86,7 @@ homeButton model =
             then [ Code, Logo ]
             else [ Code, NoLogo]
         ]
-        [ text "James Novino" ]
+        [ text "[JN]" ]
     ]
 
 header : Model -> Html Msg
@@ -260,7 +270,7 @@ contactIcon : String -> String -> Html Msg
 contactIcon link name =
   a [ href link, target "_blank" ]
     [ img
-        [ class [ ContactIcon ]
+        [ class [ ContactIcon ]  
         , src <| "assets/" ++ name ++ ".svg"
         ] []
     ]
