@@ -421,7 +421,7 @@ css =
             [ p [ margin zero ] ]
         ]
 
-    , class Projects <| contentBase
+    , class Projects <| contentBase 
 
     , class Contact <| contentBase ++
         [ height (pct 94)
