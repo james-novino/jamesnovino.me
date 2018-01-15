@@ -11,6 +11,9 @@ type DetailCard
   | FifthRmcCard
   | SixthRmcCard
   | SeventhRmcCard
+  | JetGameCard
+  | JetVisualizerCard
+  | MicromouseCard
 
 
 -- ABOUT ME

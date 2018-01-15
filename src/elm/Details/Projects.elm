@@ -15,10 +15,58 @@ type alias ProjectItemDetails =
   , details : List String
   }
 
+brownMicromouse : ProjectItemDetails 
+brownMicromouse = 
+  { card = MicromouseCard
+  , title = "Fourth Annual Brown University Robotics Olympiad"
+  , members = "Me, Jake Holohan, Abby Sydnes "
+  , color = "rgb(179, 5, 56)"
+  , logo = "/assets/temple.png"
+  , timePeriod = "March 2015 - April 2015"
+  , link = "https://news.temple.edu/news/2015-04-13/micromouse-competition"
+  , details = 
+      [ "Designed and Built Automonmous Maze Navigating Robot"
+      , "Wrote A* Maze & Floodfill Navigation Algorithm "
+      , "Contributed to the 3D modeling and design of the 3D printed robot"
+      ]
+  }
+
+jetVisualizer : ProjectItemDetails 
+jetVisualizer = 
+   { card = JetVisualizerCard
+  , title = "Jet Traffic Flow Visualizer"
+  , members = "Me, Krishna Vangapandu "
+  , color = "rgb(130, 0, 255)"
+  , logo = "/assets/jetlogo.jpg"
+  , timePeriod = "November 2017 - January 2018"
+  , link = "Unavilable Internal Tool"
+  , details = 
+      [ "Internal Traffic Data display tool built on Netflix Vizceral Library"
+      , "Created custom Vizceral version for Jet.com, built metrics and tracking system for Jet OMS"
+      , "Frontend - React | Backend - F#"
+      ]
+  }
+
+jetGame : ProjectItemDetails
+jetGame = 
+  { card = JetGameCard
+  , title = "Jet.com 404 Game"
+  , members = "Me, Nicholas Antonov, Daniel Tsioni"
+  , color = "rgb(130, 0, 255)"
+  , logo = "/assets/jetlogo.jpg"
+  , timePeriod = "July 2016"
+  , link = "https://jet.com/404"
+  , details = 
+      [ "Designed, Built and Presented Jet.com 404 Game after 48 hours of grueling development for the first ever Jet.com Internal Hackathon "
+      , "Game was developed as production ready code in the Jet.com frontend repository"
+      , "Utilized sprite animation and phaser as game engine"
+      ]
+  }
+
 fifthRmc : ProjectItemDetails
 fifthRmc = 
   { card = FifthRmcCard
-  , title = " 6th Annual NASA Robotic Mining Competition "
+  , title = " 5th Annual NASA Robotic Mining Competition "
   , members = "Me, Mark Halberstadt (Captain), Eric Schisselbauer"
   , color = "rgb(11, 61, 145)"
   , logo = "/assets/nasa.png"

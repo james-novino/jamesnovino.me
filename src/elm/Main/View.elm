@@ -261,9 +261,12 @@ projects expandedCards =
   div [ class [ Experience ] ] <|
     h2 [] [ text "Projects" ] ::
     List.map (projectItem expandedCards)
-      [ fifthRmc
-      , sixthRmc
+      [ jetVisualizer
+      , jetGame
       , seventhRmc
+      , brownMicromouse
+      , sixthRmc
+      , fifthRmc
       ]
 
 contactIcon : String -> String -> Html Msg

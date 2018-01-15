@@ -21,9 +21,11 @@ jetDetails =
   , details =
       [
         "Managed and developed API's for OMS (Order Management System) "
-        , "Contributed to DSL based workflow engine"
+        , "Contributed to design and implementation of new DSL based workflow engine"
         , "Built and maintained internal infrastructure library"
-
+        , "Lead load testing and holiday prepration activites for OMS in 2017"
+        , "Contributed to workflow visualization tool"
+        , "Built Automated Testing Framework"
       ]
   }
 
@@ -35,9 +37,9 @@ jetInternDetails =
   , position = "Software Engineering Intern"
   , timePeriod = "May 2016 - August 2017"
   , details =
-      [
-        "Developed Internal Tooling for Order Management Systems"
-        , "Built Features for Customer Service Tooling"
+      [ "Developed internal tooling for order management systems"
+      , "Built features for customer service tooling"
+      , "Worked on backend OMS system features"
       ]
   }
 
@@ -49,9 +51,9 @@ microsoftStudentPartnerDetails =
   , position = "Microsoft Student Partner"
   , timePeriod = "January 2016 - December 2017"
   , details =
-      [
-        "The official Microsoft Liaison for Temple University"
-        , "Worked with student organizations to foster a rich learning environment by hosting workshops and technical events on campus"
+      [ "The official Microsoft Liaison for Temple University"
+      , "Worked with student organizations to foster a rich learning environment by hosting workshops and technical events on campus"
+      , "Considered in the top 50 MSPs in the world 2017" 
       ]
   }
 
