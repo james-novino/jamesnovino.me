@@ -27,7 +27,7 @@ import Svg.Attributes exposing (xlinkHref)
 
 view : Model -> Html Msg
 view model =
-  div [ class [ Main ] ]
+    div [ class [ Main ] ]
     [ header model
     , menu model
     , div
@@ -40,6 +40,8 @@ view model =
         , contact
         ]
     ]
+
+
 
 navIcon : String -> Html Msg
 navIcon name =
@@ -57,17 +59,23 @@ menuItem curHeight item =
 
 menu : Model -> Html Msg
 menu model =
-  div [ class <| if model.showMenu then [ Menu ] else [ MenuClose ] ] <|
-    button
-      [ class [ CloseButton ], onClick ToggleMenu ]
-      [ navIcon "close" ] ::
-    List.map (menuItem model.visibleHeight)
-      [ "About"
-      , "Experience"
-      , "Education"
-      , "Projects"
-      , "Contact"
-      ]
+  div []
+    [ div
+        [ class <| if model.showMenu then [ MenuOverlay ] else [ MenuOverlayHidden ]
+        , onClick ToggleMenu
+        ] []
+    , div [ class <| if model.showMenu then [ Menu ] else [ MenuClose ] ] <|
+        button
+          [ class [ CloseButton ], onClick ToggleMenu ]
+          [ navIcon "close" ] ::
+        List.map (menuItem model.visibleHeight)
+          [ "About"
+          , "Experience"
+          , "Education"
+          , "Projects"
+          , "Contact"
+          ]
+    ]
 
 menuButton : Html Msg
 menuButton =
