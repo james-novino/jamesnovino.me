@@ -273,10 +273,7 @@ templeEduDetails =
 
 
 email : String
-email = "james"++".nov"++"ino"++"@"++"me."++"com"
-
-phone : String
-phone = "61"++"0-"++"3"++"22-0"++"066"
+email = "james"++".nov"++"ino"++"@"++"out"++"look"++".com"
 
 linkedin : String
 linkedin = "https://www.linkedin.com/in/jamesnovino/"
